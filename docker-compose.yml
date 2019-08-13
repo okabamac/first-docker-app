@@ -1,9 +1,25 @@
 # docker-compose.yml
 version: "3.3"
 services:
+
+  postgres:
+    image: postgres:11.2-alpine
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: docker
+    networks: 
+      - webnet
   app:
     build: .
     command: npm run dev
     ports:
-      - "3000:3000"
+      - "3000:5000"
       - "9229:9229"
+    environment:
+      DB_HOST: postgres
+    networks: 
+      - webnet
+networks: 
+  webnet:
+  
