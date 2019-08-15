@@ -6,3 +6,6 @@ services:
     volumes:
       - .:/home/app/
       - /home/app/node_modules
+      - server_db:/var/lib/postgresql/data
+volumes:
+  server_db:

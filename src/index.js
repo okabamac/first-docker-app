@@ -8,6 +8,26 @@ app.get("/", async (req, res) => {
   res.send('Hello world Mac')
 });
 
+app.post("/create", async (req, res)  => {
+  console.log(req); 
+  try {
+ const newUser =await models.User.create({
+    username: req.username,
+    email: req.email,
+    password: req.password
+  });
+  res.send(newUser);
+  } catch (err) {
+    console.log(err)
+  }
+});
+app.get("/all", function(req, res) {
+  models.User.findAll({
+  }).then(function(users) {
+    res.send(users);
+  });
+});
+
 app.use("*", (req, res) => {
   res.status(404).json({
     status: 404,

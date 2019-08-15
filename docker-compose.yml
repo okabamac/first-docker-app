@@ -4,17 +4,20 @@ services:
 
   postgres:
     image: postgres:11.2-alpine
+     
     environment:
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_DB: docker
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
     networks: 
       - webnet
+    ports:
+      - "4201:5432"
   app:
     build: .
     command: npm run dev
     ports:
-      - "3000:5000"
+      - "3000:${PORT}"
       - "9229:9229"
     environment:
       DB_HOST: postgres
