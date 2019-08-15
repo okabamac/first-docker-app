@@ -20,13 +20,13 @@ before_install:
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
+  - docker-compose --version
+  - docker ps -a
   
 install:
   - npm ci
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
-  - docker-compose --version
-  - docker ps
 # script:
 #     - npm run start &
 #     - sleep 10; npm run ci:test
