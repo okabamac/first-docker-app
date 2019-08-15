@@ -23,7 +23,8 @@ before_install:
   
 install:
   - npm ci
-
-script:
-    - npm run start &
-    - sleep 10; npm run ci:test
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+# script:
+#     - npm run start &
+#     - sleep 10; npm run ci:test
