@@ -4,8 +4,8 @@ services:
   app:
     env_file: .env
     volumes:
-      - .:/home/app/
-      - /home/app/node_modules
+      - .:/home/node/
+      - /home/node/node_modules
       - server_db:/var/lib/postgresql/data
 volumes:
   server_db:
