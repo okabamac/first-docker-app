@@ -10,8 +10,8 @@ ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 ENV PATH=$PATH:/home/node/.npm-global/bin
 
 
-COPY package*.json /home/node/
-# COPY package-lock.json /home/node/
+COPY package.json /home/node/
+COPY package-lock.json /home/node/
 
 RUN npm ci
 
