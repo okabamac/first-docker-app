@@ -23,4 +23,4 @@ before_script:
 
 script:
     # - npm run ci:test
-    - docker-compose run web mocha
+    - docker-compose run app npm run test
