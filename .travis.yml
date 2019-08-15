@@ -16,7 +16,6 @@ services:
 before_install:
   - docker-compose up --build -d
   - docker ps -a
-  - docker ls
 
 before_script:
   # - psql -c 'create database travis_ci_test;' -U postgres
