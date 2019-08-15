@@ -25,6 +25,8 @@ install:
   - npm ci
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
+  - docker-compose --version
+  - docker ps
 # script:
 #     - npm run start &
 #     - sleep 10; npm run ci:test
