@@ -10,7 +10,7 @@
     "start": "node build/index.js",
     "start:dev": "nodemon --inspect=0.0.0.0:9229 --exec babel-node src/index.js",
     "test": "cross-env NODE_ENV=test ./node_modules/.bin/mocha --require @babel/register src/test/**.test.js --timeout 20000 --exit",
-    "ci:test": "cross-env NODE_ENV=test mocha build/test/**.test.js --timeout 20000 --exit"
+    "ci:test": "cross-env NODE_ENV=test mocha src/test/**.test.js --timeout 20000 --exit"
   },
   "repository": {
     "type": "git",
