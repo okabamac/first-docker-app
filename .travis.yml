@@ -19,4 +19,4 @@ before_install:
 
 script:
     # - npm run ci:test
-    - docker-compose run app npm run test
+    - docker-compose run app sudo npm run test --unsafe-perm=true --allow-root
