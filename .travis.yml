@@ -15,12 +15,10 @@ services:
 
 before_install:
   - docker-compose up --build -d
-  
-install:
-  - npm ci
+
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
-   - docker ps -a
+  # - psql -c 'create database travis_ci_test;' -U postgres
+  - docker ps -a
 script:
     - npm run start &
     - sleep 10; npm run ci:test
