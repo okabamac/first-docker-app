@@ -22,4 +22,4 @@ before_install:
   - docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
 
 script:
-    - docker-compose run --user='root'  app npm run ci:test
+    - docker-compose run --user='root' app npm run test
