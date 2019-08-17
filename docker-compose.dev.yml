@@ -1,16 +1,20 @@
 version: '3.7'
 services:
   postgres:
-    image: postgres:11.5-alpine
-    container_name: postgresproduction
+    image: postgres:11.2-alpine
+    container_name: dockerpostgress
     env_file: .env
     networks: 
       - webnet
     ports:
-      - "4242:5432"
+      - "4201:5432"
   app:
-    command: npm start
-    restart: always
+    build:
+      context: .
+      target: development
+    command: npm run dev
+    volumes:
+      - .:/usr/src/app
     env_file: .env
     environment:
       - DB_HOST=postgres
