@@ -18,5 +18,5 @@ before_install:
   - docker ps -a
 
 script:
-    # - npm run ci:test
-    - docker-compose run --user='root'  app npm run test
+    - npm i -g expect.js mocha
+    - docker-compose run --user='root'  app npm run ci:test
