@@ -15,12 +15,18 @@ services:
     command: npm run dev
     volumes:
       - .:/usr/src/app
+      - server_db:/var/lib/postgresql/data
     env_file: .env
     environment:
       - DB_HOST=postgres
+    ports:
+      - "3000:${PORT}"
+      - "9229:9229"
     depends_on:
       - postgres
     networks: 
       - webnet
 networks: 
   webnet:
+volumes:
+  server_db:

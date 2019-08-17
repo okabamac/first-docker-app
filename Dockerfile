@@ -19,6 +19,7 @@ FROM node:10.15.0-alpine AS base
 
 WORKDIR /usr/src/app
 
+EXPOSE 3000 5000 9229
 
 # dev image contains everything needed for testing, development and building
 FROM base AS development
@@ -38,7 +39,7 @@ COPY . .
 FROM development as builder
 # RUN yarn lint
 # RUN yarn test:unit --colors
-# RUN yarn babel ./src --out-dir ./dist --copy-files
+
 RUN npm run build
 
 RUN ls -d build/*

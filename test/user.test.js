@@ -6,7 +6,7 @@
 
 import expect from 'expect.js';
 
-import models from '../models';
+import models from '../src/models/index';
 
 // chai.use(chaiHttp);
 // chai.should();
