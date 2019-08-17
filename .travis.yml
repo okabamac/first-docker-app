@@ -17,11 +17,9 @@ addons:
     packages:
       - docker-ce
 
-      
+
 before_install:
   - docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
-  - docker ps -a
 
 script:
-    - npm i -g expect.js mocha
     - docker-compose run --user='root'  app npm run ci:test
